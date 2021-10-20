@@ -1,7 +1,7 @@
-/*  PROGRAMA 06: Cartas | CLASE main
+/*  PROGRAMA 07: Cartas con menú | CLASE main
     AUTORA: Maria Tchijov Cruz.
-    11 de octubre de 2021.
-    Clase que tendrá los métodos que se usarán en la clase carta.
+    20 de octubre de 2021.
+    Clase que tendrá los métodos que se usarán en la clase carta, usando un menú de opciones.
  */
 
 import java.util.*;
