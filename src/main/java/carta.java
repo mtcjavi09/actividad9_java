@@ -1,7 +1,8 @@
-/*  PROGRAMA 07: Cartas con menú | CLASE main
+/*  PROGRAMA 09: Cartas con excepciones | CLASE carta
     AUTORA: Maria Tchijov Cruz.
-    20 de octubre de 2021.
-    Clase que tendrá los métodos que se usarán en la clase carta, usando un menú de opciones.
+    04 de noviembre de 2021.
+    Clase que tendrá los métodos que se usarán en la clase carta, 
+        usando un menú de opciones y agregando excepciones.
  */
 
 public class carta 
@@ -19,7 +20,7 @@ public class carta
     public String getValor() {return valor;}
     public void setValor(String valor) {this.valor = valor;}
     
-    //Contructor del objeto carta
+    //Contructor del objeto carta con valores predeterminados
     public carta(String palo, String color, String valor) 
     {
         this.palo = palo;
@@ -27,5 +28,6 @@ public class carta
         this.valor = valor;
     }
     
+    //Contructor del objeto carta vacío
     public carta(){}
 }

@@ -1,7 +1,8 @@
-/*  PROGRAMA 07: Cartas con menú | CLASE main
+/*  PROGRAMA 09: Cartas con excepciones | CLASE deck
     AUTORA: Maria Tchijov Cruz.
-    20 de octubre de 2021.
-    Clase que tendrá los métodos que se usarán en la clase carta, usando un menú de opciones.
+    04 de noviembre de 2021.
+    Clase que tendrá los métodos que se usarán en la clase carta, 
+        usando un menú de opciones y agregando excepciones.
  */
    
 import java.util.*;
@@ -20,38 +21,31 @@ public class deck
     
     //Métodos propios de la clase deck
     //Shuffle: Mezcla la baraja
-    public String shuffle()
+    public String shuffle() throws Exception
     {
-        //Se aplica la condición para evitar error de índice
-        if(num_cartas == 0)
-        {
-            //Se manda mensaje de error al usuario
-            return "Todas las cartas han sido utilizadas, ya no es posible hacer otra acción";
-        }
-        
-        //Si sí existen aún cartas en el índice, se continúa
-        else
+        //Se usa try para verificar el índice completo de cartas
+        try
         {
             //Se usará el collector para mezclar el deck
             Collections.shuffle(card);
-            
-            //Regresa mensaje de confirmación
-            return "Se mezcló el deck";
-        }       
+        }
+        
+        //Se capta la excepción en general y se genera la excepción para su captura en main
+        catch(Exception e)
+        {
+            //Se manda mensaje de error al usuario
+            throw new Exception("Ya no es posible hacer otra acción con las cartas. Finalizando programa...");
+        }
+             
+        //Regresa mensaje de confirmación
+        return "Se mezcló el deck";
     }
     
     //Head: Muestra la primera carta del deck y la elimina
-    public void head()
-    {
-        //Se aplica la condición para evitar error de índice
-        if(num_cartas == 0)
-        {
-            //Se manda mensaje de error al usuario
-            System.out.println("Todas las cartas han sido utilizadas, ya no es posible hacer otra acción");
-        }
-        
-        //Si sí existen aún cartas en el índice, se continúa
-        else
+    public void head() throws Exception
+    {      
+        //Se usa try para probar el código y evitar error de índice
+        try
         {
             //Se usará la posición 0 al ser el primer índice de la lista
             //Se muestra la carta que fue elegida
@@ -65,24 +59,24 @@ public class deck
             //Se muestra la confirmación de la eliminación
             System.out.println("\nSe ha eliminado la carta 1, quedan: " + num_cartas); 
         }
+        
+        //Se capta la excepción en general y se genera la excepción para su captura en main
+        catch(Exception e)
+        {
+            //Se manda mensaje de error al usuario
+            throw new Exception("Ya no es posible hacer otra acción con las cartas. Finalizando programa...");
+        }
     }
     
     //Pick: Selecciona una carta al azar y la elimina
-    public void pick()
+    public void pick() throws Exception
     {
         int numero; //Variable donde se guardará el número aleatorio
         
         Random num_rand = new Random(); //Se crea el objeto random
-        
-        //Se aplica la condición para evitar error de índice
-        if(num_cartas == 0)
-        {
-            //Se manda mensaje de error al usuario
-            System.out.println("Todas las cartas han sido utilizadas, ya no es posible hacer otra acción");
-        }
-        
-        //Si sí existen aún cartas en el índice, se continúa
-        else
+       
+        //Se usa try para probar el código y evitar error de índice
+        try
         {
             //Se guarda el número aleatorio en la variable numero
             //Se establece como límite el número de cartas existentes para evitar error de índice
@@ -100,10 +94,17 @@ public class deck
             //Se muestra la confirmación de la eliminación
             System.out.println("\nSe ha eliminado la carta " + (numero + 1) + ", quedan: " + num_cartas);
         }
+        
+        //Se capta la excepción en general y se genera la excepción para su captura en main
+        catch(Exception e)
+        {
+            //Se manda mensaje de error al usuario
+            throw new Exception("Ya no es posible hacer otra acción con las cartas. Finalizando programa...");
+        }
     }
     
     //Hand: Regresa un arreglo de 5 cartas del deck, las cuales se eliminarán
-    public void hand()
+    public void hand() throws Exception
     {
         //Arreglos que guardarán los diferentes atributos de las cartas
         String[] palo = new String[5];
@@ -113,16 +114,8 @@ public class deck
         //Variable que guardará el número aleatorio
         int numero;
         
-        //Se aplica la condición para evitar error de índice
-        if(num_cartas < 5)
-        {
-            //Se manda mensaje de error al usuario
-            System.out.println("El número de cartas restantes no alcanzan para realizar la acción, "
-                + "por favor, elige otra opción");
-        }
-        
-        //Si se cumple con el número requerido de cartas, se continúa
-        else
+        //Se usa try para probar el código y evitar error de índice
+        try
         {
             //Se crea objeto random para que genere el número aleatorio
             Random num_rand = new Random();
@@ -154,6 +147,13 @@ public class deck
                 //Se imprime línea para mejor visualización
                 System.out.println();
             } 
+        }
+        
+        //Se capta la excepción en general y se genera la excepción para su captura en main
+        catch(Exception e)
+        {
+            //Se manda mensaje de error al usuario
+            throw new Exception("Ya no es posible hacer otra acción con las cartas. Finalizando programa...");
         }
     }    
 }   
